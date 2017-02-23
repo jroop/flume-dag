@@ -1,0 +1,25 @@
+{
+  "name": "flume-dag",
+  "version": "1.0.0",
+  "description": "Directed acyclic graph method for calling functions",
+  "main": "index.js",
+  "scripts": {
+    "test": "cd test; ava --verbose --serial  *.test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jroop/flume-dag.git"
+  },
+  "keywords": [
+    "dag"
+  ],
+  "author": "jroop",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jroop/flume-dag/issues"
+  },
+  "homepage": "https://github.com/jroop/flume-dag#readme",
+  "devDependencies": {
+    "ava": "^0.18.2"
+  }
+}
