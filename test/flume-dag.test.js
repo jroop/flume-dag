@@ -64,6 +64,32 @@ test.cb('test order of operations', (t)=>{
   },{v:''});
 });
 
+test.cb('test res.exit()', (t)=>{
+  t.plan(1);
+
+  let task = new flumedag.Flume();
+
+  const a = (err,req,res,next,from,...args)=>{
+    timer.setTimeout(()=>{
+      res.exit(); //will reset things
+      next(from);
+    },1000);
+  }
+  const b = (err,req,res,next,from,...args)=>{
+    timer.setTimeout(()=>{
+      t.is(0,0); //should not be called
+      next(from);
+    },500);
+  }
+
+  task.use(b,[a]);
+  task.start(()=>{
+    t.is(0,0);
+    t.end();
+  });
+
+});
+
 
 
 

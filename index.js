@@ -86,8 +86,12 @@
     funcWrapper(from,err){
 
       if(err){ //add to an object and skip to functions that have err?
-        if(!this.err) this.err = {};
-        this.err[from] = err;
+        if(!this.err){
+          this.err = {
+            errors:{}
+          };
+        }
+        this.err.errors[from] = err;
       }
 
       if(this.run){
@@ -131,6 +135,8 @@
       }
       return done;
     }
+    //attached to res.exit() if want to exit in user function
+    //call with res.exit(func) if want to not use start function
     exit(next){
       if(next) this.next = next; //will get called in funcWrapper
       //set exit
