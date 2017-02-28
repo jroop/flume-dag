@@ -1,6 +1,6 @@
 {
   "name": "flume-dag",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Directed acyclic graph method for calling functions",
   "main": "index.js",
   "scripts": {
